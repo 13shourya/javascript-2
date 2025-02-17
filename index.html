@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Geometry</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #eef;
+            border: 2px solid #007bff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 8px;
+            width: 120px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .go a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .go a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="top">Basic Geometry</h1>
+        <p>Find the area of basic shapes:</p>
+        
+        <ul>
+            <li><a href="#circle">Circle</a></li>
+            <li><a href="#triangle">Triangle</a></li>
+            <li><a href="#square">Square</a></li>
+            <li><a href="#rectangle">Rectangle</a></li>
+        </ul>
+
+        <!-- Circle Section -->
+        <section id="circle">
+            <h2>Circle Area</h2>
+            <label>Enter the radius: </label>
+            <input type="text" id="radius">
+            <button onclick="getCircleArea()">Calculate</button>
+            <p>Result: <input type="text" id="circle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Triangle Section -->
+        <section id="triangle">
+            <h2>Triangle Area</h2>
+            <label>Base: </label>
+            <input type="text" id="triangle-base">
+            <label>Height: </label>
+            <input type="text" id="triangle-height">
+            <button onclick="getTriangleArea()">Calculate</button>
+            <p>Result: <input type="text" id="triangle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Square Section -->
+        <section id="square">
+            <h2>Square Area</h2>
+            <label>Side length: </label>
+            <input type="text" id="square-side">
+            <button onclick="getSquareArea()">Calculate</button>
+            <p>Result: <input type="text" id="square-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Rectangle Section -->
+        <section id="rectangle">
+            <h2>Rectangle Area</h2>
+            <label>Width: </label>
+            <input type="text" id="rectangle-width">
+            <label>Height: </label>
+            <input type="text" id="rectangle-height">
+            <button onclick="getRectangleArea()">Calculate</button>
+            <p>Result: <input type="text" id="rectangle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+    </div>
+
+    <script>
+        function getCircleArea() {
+            let r = parseFloat(document.getElementById("radius").value);
+            if (!isNaN(r) && r > 0) {
+                document.getElementById("circle-area").value = (Math.PI * r * r).toFixed(2);
+            } else {
+                alert("Please enter a valid radius.");
+            }
+        }
+
+        function getTriangleArea() {
+            let b = parseFloat(document.getElementById("triangle-base").value);
+            let h = parseFloat(document.getElementById("triangle-height").value);
+            if (!isNaN(b) && !isNaN(h) && b > 0 && h > 0) {
+                document.getElementById("triangle-area").value = (0.5 * b * h).toFixed(2);
+            } else {
+                alert("Please enter valid base and height.");
+            }
+        }
+
+        function getSquareArea() {
+            let s = parseFloat(document.getElementById("square-side").value);
+            if (!isNaN(s) && s > 0) {
+                document.getElementById("square-area").value = (s * s).toFixed(2);
+            } else {
+                alert("Please enter a valid side length.");
+            }
+        }
+
+        function getRectangleArea() {
+            let w = parseFloat(document.getElementById("rectangle-width").value);
+            let h = parseFloat(document.getElementById("rectangle-height").value);
+            if (!isNaN(w) && !isNaN(h) && w > 0 && h > 0) {
+                document.getElementById("rectangle-area").value = (w * h).toFixed(2);
+            } else {
+                alert("Please enter valid width and height.");
+            }
+        }
+    </script>
+</body>
+</html>
